@@ -10,13 +10,13 @@ public class Carte {
     public int hauteur;
     public int largeur;
 
+    public char[][] carte= null;
+
     public Carte(){
         
     }
 
-    public char[][] lectureCarte(String cheminCarte){
-
-        char[][] carte = null;
+    public void lectureCarte(String cheminCarte){
 
         try (BufferedReader br = new BufferedReader(new FileReader(new File(cheminCarte)))) {
             String ligne;
@@ -46,7 +46,21 @@ public class Carte {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return carte;
     }
+
+    public boolean placePerso(Personnage p){
+        int[] pos = p.getPosition();
+        if(carte[pos[1]][pos[0]] == ' ' ){
+            carte[pos[1]][pos[0]] = p.perso;
+            return true;
+        }
+        return false;
+    }
+
+    public void deplacePerso(Personnage p){
+        int[] pos = p.getPosition();
+        carte[pos[1]][pos[0]] = p.perso;
+    
+    }
+
 }

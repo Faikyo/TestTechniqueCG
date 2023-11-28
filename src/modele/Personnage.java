@@ -4,6 +4,8 @@ public class Personnage {
 
     private int[] position;
 
+    public char perso = 'X';
+
     public Personnage(){
 
     }
@@ -20,17 +22,17 @@ public class Personnage {
         position=nouvellePosition;
     }
 
-    public void seDeplace(String deplacement){
-        if(deplacement ==  "N"){
+    public void seDeplace(char deplacement){
+        if(deplacement ==  'N'){
             position[1]--;
         }
-        else if(deplacement ==  "S"){
+        else if(deplacement ==  'S'){
             position[1]++;
         }
-        else if(deplacement ==  "O"){
+        else if(deplacement ==  'O'){
             position[0]--;
         }
-        else if(deplacement ==  "E"){
+        else if(deplacement ==  'E'){
             position[0]++;
         }
      
