@@ -49,27 +49,31 @@ public class Controleur {
         c.carte[pos[1]][pos[0]]= ' ';
         for (char dir : caracteres) {
             if (dir == 'N'){
-                if(c.carte[pos[1]][pos[0]-1] == ' '){
-                    p.seDeplace(dir);
-
+                if(pos[1]-1 >= 0){
+                    if(c.carte[pos[1]][pos[0]-1] == ' '){
+                        p.seDeplace(dir);
+                    }
                 }
             }
             else if (dir == 'O'){
-                if(c.carte[pos[1]-1][pos[0]] == ' '){
-                    p.seDeplace(dir);
-
-                }
+                if(pos[0]-1 >= 0){
+                    if(c.carte[pos[1]-1][pos[0]] == ' '){
+                        p.seDeplace(dir);
+                    }
+                } 
             }
             else if (dir == 'S'){
-                if(c.carte[pos[1]][pos[0]+1] == ' '){
-                    p.seDeplace(dir);
-
-                }
+                if(pos[1]+1 <= c.hauteur){
+                    if(c.carte[pos[1]][pos[0]+1] == ' '){
+                        p.seDeplace(dir);
+                    }
+                } 
             }
             else if (dir == 'E'){
-                if(c.carte[pos[1]+1][pos[0]] == ' '){
-                    p.seDeplace(dir);
-
+                if(pos[1]+1<=c.largeur){
+                    if(c.carte[pos[1]+1][pos[0]] == ' '){
+                        p.seDeplace(dir);
+                    }
                 }
             }
         }
